@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    
+    <ion-title>Story</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card expand="full">
+    <img width="100%" [src]="storyDetails.url"/>
+    <ion-card-header>
+      <ion-row>
+        <ion-card-title>{{storyDetails.title}}</ion-card-title>
+        <ion-col></ion-col>
+        <!-- <ion-icon *ngIf="!galleryDetails.favorite" *ngIf="!addedToFav()" (click)="addToFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon> -->
+        <!-- <ion-icon *ngIf="galleryDetails.favorite" *ngIf="!deletedToFav(photoDetails.id)" (click)="addToFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon> -->
+        <ion-icon *ngIf="!storyDetails.favorite" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon>
+        <ion-icon *ngIf="storyDetails.favorite" style="zoom:2.0" class="ion-float-right" name="heart" color="dark" ></ion-icon>
+      </ion-row>
+      
+      <ion-card-subtitle >Author: {{storyDetails.author}}</ion-card-subtitle>
+      
+      
+    </ion-card-header>
+    <ion-card-content>
+      {{storyDetails.description}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
