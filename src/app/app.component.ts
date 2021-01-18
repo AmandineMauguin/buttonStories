@@ -18,14 +18,14 @@ export class AppComponent implements OnInit, DoCheck {
       icon: "home",
     },
     {
-      title: "Gallery",
+      title: "Stories",
       url: "/tabs/tab2",
-      icon: "planet",
+      icon: "book",
     },
     {
       title: "Contact",
       url: "/tabs/tab3",
-      icon: "person",
+      icon: "heart",
     },
     {
       title: "Mail",
