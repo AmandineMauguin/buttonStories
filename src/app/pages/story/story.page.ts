@@ -11,10 +11,10 @@ import { ActivatedRoute } from "@angular/router";
 export class StoryPage implements OnInit {
   constructor(
     private storage: StorageService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
 
-  storyDetails = {};
+  storyDetails = { favorite: false };
   storyIndex = 0;
   ngOnInit() {
     this.storage.initialized();
@@ -24,5 +24,14 @@ export class StoryPage implements OnInit {
         this.storyDetails = retour[this.storyIndex];
       });
     });
+  }
+
+  async getFavorite() {
+    let params = {
+      id: this.storyIndex,
+      favorite: false,
+    };
+    await this.storage.changeBoolean(params);
+    this.storyDetails.favorite = params.favorite;
   }
 }

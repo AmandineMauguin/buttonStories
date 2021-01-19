@@ -10,14 +10,42 @@ export class StorageService {
       url: "../../assets/space1.jpg",
       title: "X",
       author: "Me",
-      description: "It's an X.",
+      favorite:false,
     },
     {
       id: 1,
       url: "../../assets/space2.jpg",
       title: "X",
       author: "Me",
-      description: "It's an X.",
+      favorite:false,
+    },
+    {
+      id: 2,
+      url: "../../assets/space3.jpg",
+      title: "X",
+      author: "Me",
+      favorite:false,
+    },
+    {
+      id: 3,
+      url: "../../assets/space4.jpg",
+      title: "X",
+      author: "Me",
+      favorite:false,
+    },
+    {
+      id: 4,
+      url: "../../assets/space5.jpg",
+      title: "X",
+      author: "Me",
+      favorite:false,
+    },
+    {
+      id: 5,
+      url: "../../assets/space6.jpg",
+      title: "X",
+      author: "Me",
+      favorite:false,
     },
   ];
   constructor(private storage: Storage) {}
@@ -33,7 +61,19 @@ export class StorageService {
     return retour;
   }
 
-  setData(o) {
-    this.storage.set("data", o);
+  setData(obj) {
+    this.storage.set("data", obj);
+  }
+
+  //Fonction qui passe le boolean favorite de false à true (et vis-versa)
+  async changeBoolean(params){
+    const stories = await this.storage.get('data');
+    stories[params.id].favorite =  !stories[params.id].favorite;
+    params.favorite = stories[params.id].favorite; 
+    this.storage.set('data', stories);
+  }
+
+  isFavorite(params){
+    params.favorite = this.data[params.id].favorite;
   }
 }

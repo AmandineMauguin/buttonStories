@@ -13,10 +13,8 @@
       <ion-row>
         <ion-card-title>{{storyDetails.title}}</ion-card-title>
         <ion-col></ion-col>
-        <!-- <ion-icon *ngIf="!galleryDetails.favorite" *ngIf="!addedToFav()" (click)="addToFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon> -->
-        <!-- <ion-icon *ngIf="galleryDetails.favorite" *ngIf="!deletedToFav(photoDetails.id)" (click)="addToFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon> -->
-        <ion-icon *ngIf="!storyDetails.favorite" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon>
-        <ion-icon *ngIf="storyDetails.favorite" style="zoom:2.0" class="ion-float-right" name="heart" color="dark" ></ion-icon>
+        <ion-icon *ngIf="!storyDetails.favorite"  (click)="getFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon>
+        <ion-icon *ngIf="storyDetails.favorite" (click)="getFavorite()" style="zoom:2.0" class="ion-float-right" name="heart" color="dark" ></ion-icon>
       </ion-row>
       
       <ion-card-subtitle >Author: {{storyDetails.author}}</ion-card-subtitle>
@@ -25,6 +23,15 @@
     </ion-card-header>
     <ion-card-content>
       {{storyDetails.description}}
+      <div [ngSwitch]="storyDetails.id">
+        <app-story1 *ngSwitchCase="0"></app-story1>
+        <app-story2 *ngSwitchCase="1"></app-story2>
+        <app-story3 *ngSwitchCase="2"></app-story3>
+        <app-story4 *ngSwitchCase="3"></app-story4>
+        <app-story5 *ngSwitchCase="4"></app-story5>
+        <app-story6 *ngSwitchCase="5"></app-story6>
+      </div>
+      
     </ion-card-content>
   </ion-card>
 

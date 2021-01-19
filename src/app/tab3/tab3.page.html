@@ -10,11 +10,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <ng-container *ngFor="let img of storyList">
+      <ion-item *ngIf="img.favorite" [routerLink]="'/story/' + img.id">
+        <ion-avatar slot="start">
+          <img [src]="img.url" />
+        </ion-avatar>
+        <ion-label>
+          <h1>{{img.title}}</h1>
+          <p>{{img.description}}</p>
+          <h5>Author: {{img.author}}</h5>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
 </ion-content>
