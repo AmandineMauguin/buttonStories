@@ -14,9 +14,11 @@ export class Tab2Page implements OnInit {
   storyList = [];
 
   ngOnInit(){
+    console.log('ui');
     this.storage.initialized();
     this.storage.getData().then((retour) => {
       this.storyList = retour;
+      console.log("this.storyList dans tab2: " + this.storyList)
     });
     
   }

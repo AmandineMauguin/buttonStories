@@ -1,28 +1,40 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button slot="start"></ion-back-button>
-    
+
     <ion-title>Story</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card expand="full">
-    <img width="100%" [src]="storyDetails.url"/>
+    <img width="100%" [src]="storyDetails.url" />
     <ion-card-header>
       <ion-row>
         <ion-card-title>{{storyDetails.title}}</ion-card-title>
         <ion-col></ion-col>
-        <ion-icon *ngIf="!storyDetails.favorite"  (click)="getFavorite()" style="zoom:2.0" class="ion-float-right" name="heart-outline" color="dark" ></ion-icon>
-        <ion-icon *ngIf="storyDetails.favorite" (click)="getFavorite()" style="zoom:2.0" class="ion-float-right" name="heart" color="dark" ></ion-icon>
+        <ion-icon
+          *ngIf="!storyDetails.favorite"
+          (click)="getFavorite()"
+          style="zoom: 2"
+          class="ion-float-right"
+          name="heart-outline"
+          color="dark"
+        ></ion-icon>
+        <ion-icon
+          *ngIf="storyDetails.favorite"
+          (click)="getFavorite()"
+          style="zoom: 2"
+          class="ion-float-right"
+          name="heart"
+          color="dark"
+        ></ion-icon>
       </ion-row>
-      
-      <ion-card-subtitle >Author: {{storyDetails.author}}</ion-card-subtitle>
-      
+
+      <ion-card-subtitle>Author: {{storyDetails.author}}</ion-card-subtitle>
       
     </ion-card-header>
-    <ion-card-content>
-      {{storyDetails.description}}
+    <ion-card-content style="padding-top: 30px; background-color: #e6e6e6c5">
       <div [ngSwitch]="storyDetails.id">
         <app-story1 *ngSwitchCase="0"></app-story1>
         <app-story2 *ngSwitchCase="1"></app-story2>
@@ -31,8 +43,6 @@
         <app-story5 *ngSwitchCase="4"></app-story5>
         <app-story6 *ngSwitchCase="5"></app-story6>
       </div>
-      
     </ion-card-content>
   </ion-card>
-
 </ion-content>

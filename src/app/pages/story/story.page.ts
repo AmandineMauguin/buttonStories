@@ -14,7 +14,7 @@ export class StoryPage implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) {}
 
-  storyDetails = { favorite: false };
+  storyDetails = { id: 0, url:'', title:'', author:'', favorite: false };
   storyIndex = 0;
   ngOnInit() {
     this.storage.initialized();

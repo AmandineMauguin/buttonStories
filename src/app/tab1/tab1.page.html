@@ -3,18 +3,16 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title> Home </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card style="padding: 20px"
+    >Si les histoires de boutons ne vous font pas rire, vous pouvez toujours
+    cliquer sur le bouton ci-dessous afin d'avoir une blague (hilarante) de
+    Chuck Norris.
+    <ion-button expand="full" (click)="getJoke()" style="padding-top:10px;">Clique, clique</ion-button>
+    <div style="padding: 10px">{{joke}}</div>
+  </ion-card>
 </ion-content>
